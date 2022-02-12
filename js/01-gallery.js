@@ -11,11 +11,19 @@ function onClickEvTarget(event) {
     return;
   }
   else {
-
+    event.preventDefault();
+    instance.show();
   }
 }
-
-
+const instance = basicLightbox.create(`
+    <div class="modal">
+        <p>
+            Your first lightbox with just a few lines of code.
+            Yes, it's really that simple.
+        </p>
+    </div>
+`)
+console.log(instance);
 
 function createGalleryItemsMarkap(items) {
    return items.map(item=> ` <div class="gallery__item">
