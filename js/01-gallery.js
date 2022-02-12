@@ -20,21 +20,25 @@ const galleryRef = document.querySelector('.gallery');
 galleryRef.insertAdjacentHTML('beforeend', galleryItemsEl);
 galleryRef.addEventListener('click', onClickImg);
 
- const instance = basicLightbox.create(`
+
+function onClickImg(event) {
+    event.preventDefault();
+  if (event.target.nodeName !== 'IMG') {
+    return;
+  }
+   const instance = basicLightbox.create(`
      <div class="modal">
-        <img src="">
+        <img src="${event.target.dataset.source}">
       </div>
  `);
-instance.show();
- 
-function onClickImg(event) {
-    if (event.target.tagName !== IMG) {
-        return;
-    }
-    else {
-      event.preventDefault();   
-     
-  }
+  instance.show();
 }
 
+window.addEventListener('keydown', onCloseModal);
 
+
+function onCloseModal(event){
+  if (event.code === "Escape") {
+    instance.close();
+  }
+}
