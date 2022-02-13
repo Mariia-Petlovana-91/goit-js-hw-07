@@ -9,6 +9,7 @@ function itemMarkap(item) {
       class="gallery__image"
       src="${item.preview}"
       alt="${item.description}"
+      title='${item.description}'
     />
   </a>
 </div>`
@@ -19,13 +20,9 @@ const galleryItemsEl = galleryItems.map(itemMarkap).join('');
 const galleryRef = document.querySelector('.gallery');
 galleryRef.insertAdjacentHTML('beforeend', galleryItemsEl);
 
-// let gallery = new SimpleLightbox('.gallery a');
-// gallery.on('show.simplelightbox', function () {
-// 	// do something…
-// });
-// console.log(gallery);
 
-var lightbox = new SimpleLightbox('.gallery a', {
+
+let lightbox = new SimpleLightbox('.gallery a', {
    
-    captionType	:'attr'
+    navText:	['←','→']
 });

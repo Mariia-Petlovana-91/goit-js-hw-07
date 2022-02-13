@@ -34,11 +34,11 @@ function onClickImg(event) {
   instance.show();
 }
 
-window.addEventListener('keydown', onCloseModal);
+window.addEventListener('keydown',onEscClick );
 
-
-function onCloseModal(event){
-  if (event.code === "Escape") {
-    instance.close();
+  function onEscClick(event) {
+  if (event.code === 'Escape') {
+    const modal = document.querySelector('.basicLightbox');
+    modal.remove();
   }
 }
